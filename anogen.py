@@ -4,8 +4,16 @@
 # Rubygen/Ruby generator
 # Donate: 1GmQaG9R5NPs3ZzR6XPMD9jZk17F9MuoWn
 # -*- coding: utf-8 -*-
-import os, binascii, ecdsa, urllib, json, codecs, time, queue
-import hashlib, base58, sys, random, string, requests, base64, operator
+
+
+try:
+    import os, binascii, ecdsa, time
+    import hashlib, base58, sys, random
+except ImportError:
+    import subprocess
+    subprocess.check_call(["python", '-m', 'pip', 'install', 'base58==1.0.0'])
+    subprocess.check_call(["python", '-m', 'pip', 'install', 'ecdsa==0.13'])
+    subprocess.check_call(["python", '-m', 'pip', 'install', 'requests==2.19.1'])
 
 class pause:
     p = 0
@@ -109,29 +117,3 @@ print ("salt password: " +(e))
 print ("Publickey: " + ' ' + str(publickey))
 print ("Address: " + ' ' + str(address))
 print ("WIF: " + ' ' + str(WIF))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print (privatekey)
